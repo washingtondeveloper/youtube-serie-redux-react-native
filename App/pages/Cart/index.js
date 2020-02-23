@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from '../../store/ducks/cart';
 import Item from '../../components/Item';
 
+import { showMessage } from 'react-native-flash-message';
+
 import styles from './styles';
 
 export default function Cart() {
@@ -13,6 +15,11 @@ export default function Cart() {
 
 	function removeItemCart(item) {
 		dispatch(removeItem(item._id));
+
+		showMessage({
+			message: `${item.name} excluido com sucesso`,
+			type: 'warning'
+		});
 	}
 
 	return (
