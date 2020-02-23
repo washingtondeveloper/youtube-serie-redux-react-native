@@ -3,7 +3,6 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { useDispatch } from 'react-redux';
 import { fetchAddCar } from '../../store/fetchActions';
-import { showMessage } from 'react-native-flash-message';
 
 import styles from './styles';
 
