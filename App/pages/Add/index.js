@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 
+import Form from '../../components/Form';
 import { useDispatch } from 'react-redux';
 import { fetchAddCar } from '../../store/fetchActions';
 
 import styles from './styles';
+import Title from '../../components/Title';
 
 export default function Add() {
 	const [ name, setName ] = useState('');
@@ -21,25 +23,23 @@ export default function Add() {
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.form}>
-				<TextInput
-					onChangeText={setName}
-					placeholder="Nome..."
-					style={styles.input}
-					placeholderTextColor="#999"
-					value={name}
-				/>
-				<TextInput
-					onChangeText={setUrl}
-					placeholder="https://image"
-					style={styles.input}
-					placeholderTextColor="#999"
-					value={url}
-				/>
-				<TouchableOpacity style={styles.btn} onPress={submit}>
-					<Text style={styles.btnText}>ADICIONAR</Text>
-				</TouchableOpacity>
-			</View>
+			<Title text="Cadastro" />
+			<Form
+				textSubmit="ADICIONAR"
+				submit={submit}
+				inputs={[
+					{
+						onChangeText: setName,
+						placeholder: 'Nome...',
+						value: name
+					},
+					{
+						onChangeText: setUrl,
+						placeholder: 'https://images...',
+						value: url
+					}
+				]}
+			/>
 		</View>
 	);
 }

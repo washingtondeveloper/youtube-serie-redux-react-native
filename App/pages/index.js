@@ -8,6 +8,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Add from './Add';
 import List from './List';
 import Cart from './Cart';
+import Login from './Login';
 
 import Bagde from '../components/Badge';
 
@@ -41,6 +42,13 @@ const tabHomeNavigation = () => (
 			}}
 			name="Adicionar"
 			component={Add}
+		/>
+		<Tab.Screen
+			options={{
+				tabBarIcon: ({ color }) => <MaterialIcons name="account-circle" size={24} color={color} />
+			}}
+			name="Login"
+			component={Login}
 		/>
 		<Tab.Screen
 			options={{
