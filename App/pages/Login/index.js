@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 
 import Form from '../../components/Form';
 import Title from '../../components/Title';
+import { useDispatch } from 'react-redux';
+import { authLogin } from '../../store/fetchActions';
 
 export default function Login() {
+	const [ username, setUsername ] = useState('');
+	const [ password, setPassword ] = useState('');
+	const dispatch = useDispatch();
+
+	function submit() {
+		dispatch(authLogin({ username, password }));
+
+		setPassword('');
+		setUsername('');
+	}
+
 	return (
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
 			<Title text="Login" />
 			<Form
 				textSubmit="LOGIN"
-				submit={() => {}}
+				submit={submit}
 				inputs={[
 					{
 						placeholder: 'Login',
-						onChangeText: () => {}
+						onChangeText: setUsername,
+						value: username
 					},
 					{
 						placeholder: 'Senha...',
-						onChangeText: () => {},
-						secureTextEntry: true
+						onChangeText: setPassword,
+						secureTextEntry: true,
+						value: password
 					}
 				]}
 			/>
