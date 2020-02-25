@@ -86,7 +86,7 @@ function App() {
 					headerStyle: {
 						backgroundColor: '#03a9f4'
 					},
-					headerTitle: <Text style={{ fontSize: 23, color: '#fff', fontWeight: 'bold' }}>Shoppging Car</Text>,
+					headerTitle: <Text style={{ fontSize: 23, color: '#fff', fontWeight: 'bold' }}>Shopping Car</Text>,
 					headerRight: () => (
 						<React.Fragment>
 							{isAuthenticated && (

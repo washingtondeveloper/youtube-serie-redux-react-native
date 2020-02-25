@@ -28,7 +28,8 @@ export default function Login() {
 					{
 						placeholder: 'Login',
 						onChangeText: setUsername,
-						value: username
+						value: username,
+						autoCapitalize: 'none'
 					},
 					{
 						placeholder: 'Senha...',
